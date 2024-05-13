@@ -56,7 +56,7 @@ export default function Footer() {
 
                 </div>
             </div>
-            <p className='COPYRIGHT'>© COPYRIGHT 2024 - INVERTIR SIMPLE </p>
+            <p className='COPYRIGHT'>© COPYRIGHT 2024 - <Anchor to={`https://www.gtstecno.com.ar/`}>  GTS.TECNO </Anchor></p>
         </div>
     )
 }

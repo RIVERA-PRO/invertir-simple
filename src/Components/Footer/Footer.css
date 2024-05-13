@@ -26,6 +26,9 @@
     color: var(--blanco);
     text-align: center;
 }
+.COPYRIGHT a{
+    color: var(--blanco);
+}
 .Footer2{
     display: flex;
     justify-content: space-around;

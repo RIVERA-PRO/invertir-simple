@@ -2,9 +2,9 @@ const contact = [
 
 
     {
-        telefono: 3875683101,
+        telefono: 3814160354,
         email: 'invertirsimple@gmail.com',
-        direccion: 'Salta, Capital',
+        direccion: 'Tucuman',
         instagram: 'https://www.instagram.com/',
         facebook: 'https://www.facebook.com/?locale=es_LA'
     }
