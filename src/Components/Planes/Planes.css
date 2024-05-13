@@ -1,0 +1,90 @@
+.Planes{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 50px 10%;
+
+}
+.planesGrap{
+     
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.planes-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.planes-card h3{
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--color1);
+}
+.planes-card strong{
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-color2);
+}
+.planes-card ul{
+    margin-left: 1rem;
+}
+.cardPlanes{
+    width: 30rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.cardPlanes h3{
+    color: var(--text-color2);
+}
+.planesGrap2{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+}
+.Plancard{
+    background-color: var(--color1);
+    padding: 20px;
+    border-radius: 7px;
+    width: 15rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Plancard p{
+    color: var(--blanco);
+   
+    
+}
+.bg{
+    background-image: url(../../images/inverir.jpg);
+    height: 15rem;
+    border-radius: 7px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+@media (max-width: 900px) {
+    .Planes{
+        padding: 50px 3%;
+       
+    }
+    .Plancard{
+        width: 100%;
+    }
+    .planesGrap2{
+        gap: 1rem;
+  
+    }
+    .planes-card{
+        text-align: center;
+        width: 100%;
+    }
+    
+}

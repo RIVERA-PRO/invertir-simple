@@ -1,0 +1,50 @@
+.About{
+    display: flex;
+    gap: 3rem;
+    padding: 100px 10%;
+    align-items: center;
+}
+.About img{
+    height: 75vh;
+    width: 75vh;
+    border-radius: 20px ;
+    object-fit: cover;
+}
+.abouText{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+}
+.abouText h1{
+    color: var(--color1);
+    font-size: 40px;
+}
+.abouText h3{
+    color: var(--text-color);
+    font-size: 25px;
+}
+.abouText p{
+    color: var(--text-color2);
+    font-size: 15px;
+}
+@media (max-width: 700px){
+    .About{
+        display: flex;
+        padding: 50px 3%;
+        flex-direction: column;
+    }
+    .About img{
+        height: 30vh;
+        width: 100%;
+    }
+    .abouText{
+        width: 100%;
+    }
+    .abouText h1{
+        font-size: 30px;
+    }
+    .abouText h3{
+        font-size: 20px;
+    }
+}

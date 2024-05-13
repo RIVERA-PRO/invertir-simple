@@ -1,0 +1,88 @@
+.FooterContain{
+   
+    display: flex;
+   flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color1);
+    padding: 50px 10%;
+    gap: 3rem;
+  
+  
+}
+.logoFooter{
+    font-size: 30px;
+    color: var(--blanco);
+}
+.FooterContain a img{
+    width: 120px;
+}
+.Footer{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+   
+}
+.COPYRIGHT{
+    color: var(--blanco);
+    text-align: center;
+}
+.Footer2{
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+    padding: 50px 10%;
+    color: var(--blanco);
+    align-items: center;
+    text-align: center;
+}
+.Footer2 a{
+    color: var(--blanco);
+}
+.footerText p{
+    color: var(--blanco);
+    width: 40vh;
+}
+
+.footerText{
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+   
+}
+.footerText h3{
+    color: var(--blanco);
+}
+.footerText h2{
+    color: var(--blanco);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.footerText a{
+
+    color: var(--blanco);
+}
+.socials{
+    display: flex;
+    gap: 2rem;
+    font-size: 20px;
+}
+
+
+
+
+@media (max-width: 900px){
+    .FooterContain{
+   
+    flex-direction: column;
+
+}
+.Footer{
+    flex-direction: column;
+}
+.Footer2{
+    flex-direction: column;
+}
+.bgFooter{
+    width: 100%;
+}
+}

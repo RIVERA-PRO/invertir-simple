@@ -1,0 +1,217 @@
+header {
+    width: 100%;
+    z-index: 10;
+    transition: all 0.2s linear;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.037);
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    transition: all 0.2s linear;
+    padding: 10px 10% ;
+    background-color: transparent;
+   
+
+}
+.nav-scroll{
+    background-color: var(--color1);
+}
+.deFLexNavs{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 3rem;
+}
+
+
+.nav_items.open {
+    transform: translateX(0) !important;
+  
+}
+
+
+.nav_toggle{
+    display: flex ;
+    flex-direction: column;       
+    cursor: pointer;
+    justify-content: right;
+    text-align: right;
+    display: none;
+   
+
+}
+.nav_toggle span{
+    width: 25px;
+    height: 3px;
+    background: var(--blanco);
+    margin-bottom: 5px;
+    border-radius: 20px;
+    transform-origin: 3px 0px;
+    transition: all 0.2s linear;
+    display: flex;
+    justify-content: right;
+    text-align: right;
+  
+}
+.nav_toggle span:nth-child(1) {
+    width: 23px;
+}
+
+.nav_toggle span:nth-child(2) {
+    width: 23px; 
+}
+
+.nav_toggle span:nth-child(3) {
+    width: 23px; 
+}
+
+
+
+.logo img{
+    width: 120px;
+  
+}
+.logo h1{
+    color: var(--blanco);
+}
+
+
+.fondo{
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+
+}
+.fondo img{
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+
+}
+
+
+.enlaces{
+    display: flex;
+    text-align: left;
+    gap: 2rem;
+ 
+}
+
+
+.enlaces a{
+    color: var(--blanco);
+    text-decoration: none;
+    display: flex;
+  
+    padding: 10px;
+    border-radius: 7px;
+    align-items: center;
+   
+}
+
+.enlaces2{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 20px;
+}
+
+.enlaces2 a{
+    padding: 0px 10px;
+    text-decoration: none;
+    color: var(--text-color2);
+ }
+
+
+
+
+
+.modalNav-content {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.modalNav {
+    top: 0;
+    background-color: var(--blanco);
+    width: 30%;
+  
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.333); 
+    z-index: 999; 
+}
+
+
+
+.redes-sociales{
+    display: flex;
+    gap: 1.2rem;
+}
+.redes-sociales a{
+   font-size: 18px;
+   color: var(--blanco);
+}
+.bgNav{
+    background-color: var(--color1);
+    padding: 20px;
+}
+@media (max-width: 900px) {
+    .deNoneNav{
+        display: none;
+    }
+    .modalNav {
+        
+        width: 80%;
+       
+    }
+    .deFLexNavs{
+        display: flex;
+        gap: 2rem;
+    }
+    
+    .nav_toggle{
+        display: flex;
+      }
+        
+  
+    
+    
+    nav{
+   
+        padding: 10px 3%;
+    }
+ 
+  
+.enlaces a{
+    display: none;
+  }
+
+ 
+  
+
+ 
+
+}
+
+

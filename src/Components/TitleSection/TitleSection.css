@@ -1,0 +1,36 @@
+.titleSection{
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 1rem;
+
+
+}
+.titleSection h2{
+    font-size: 40px;
+    color: var(--color1);
+}
+.titleSection p{
+    font-size: 16px;
+    color: var(--text-color2);
+}
+
+@media (max-width: 710px) {
+    .titleSection h3{
+        font-size: 17px;
+        font-weight: 700;
+     
+    }
+    .titleSection h2{
+        font-size: 30px;
+        color: var(--color1);
+    }
+    .titleSection{
+        padding: 10px;
+    }
+    
+}

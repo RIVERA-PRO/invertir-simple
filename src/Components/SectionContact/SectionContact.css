@@ -1,0 +1,34 @@
+.SectionContact{
+    background-color: var(--color1);
+    padding: 50px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+}
+.SectionContact h2{
+    color: var(--blanco);
+}
+.SectionContact button{
+    color: var(--blanco);
+    background-color: rgb(24, 181, 24);
+    padding: 10px 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 17px;
+}
+.SectionContact img{
+    width: 20px;
+}
+@media (max-width: 700px){
+    .SectionContact{
+        padding: 30px 4%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+}

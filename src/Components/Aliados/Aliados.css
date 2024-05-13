@@ -1,0 +1,15 @@
+#swiper_container_aliados{
+    margin: 50px 13%;
+    margin-bottom: 50px;
+    
+}
+
+#SwiperSlide-scroll-aliados{
+    width: 17rem;
+    margin: 10px;
+}
+#SwiperSlide-scroll-aliados img{
+    width: 100%;
+    height: 4rem;
+    object-fit: contain;
+}

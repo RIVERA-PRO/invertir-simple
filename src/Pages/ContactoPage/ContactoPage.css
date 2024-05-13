@@ -1,0 +1,128 @@
+.ContactoPage{
+    padding: 200px 0;
+    background-color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.ContactoPage iframe{
+    height: 80vh;
+    border: none;
+    border-radius: 0;
+    position: relative;
+}
+.contactText{
+    background-color: var(--blanco);
+    width: 70vh;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    top: 17rem;
+    z-index: 2;
+    left: 60%;
+    right: 0;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    height: 90vh;
+}
+
+.contactTextCard{
+    display: flex;
+    flex-direction: column;
+}
+.contactTextCard h3{
+color: var(--text-color);
+}
+.contactTextCard p{
+    color: var(--text-color2);
+}
+.contactTextCard strong{
+        color: var(--text-color2);
+        }
+
+        .ContactoPage h1{
+            padding: 20px;
+            color: var(--text-color);
+        }
+
+
+.contactFlex{
+    padding: 50px 6%;
+    display: flex;
+    gap: 5rem;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contactFlexText{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+.contactFlexText h2{
+    color: var(--text-color);
+    font-size: 30px;
+}
+.formContact{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+.formContact input{
+    width: 100%;
+    border-radius: 10rem;
+    padding: 20px;
+    border: 1px solid var(--text-color2);
+}
+.formContact textarea{
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--text-color2);
+}
+.formContact button{
+    width: 100%;
+    border-radius: 10rem;
+    padding: 20px;
+    border: 1px solid var(--text-color2);
+    color: var(--blanco);
+    background-color: var(--color1);
+}
+.cardForm{
+    display: flex;
+    flex-direction: column;
+
+}
+.cardForm h3{
+    color: var(--text-color);
+    font-size: 20px;
+}
+.cardForm p{
+    color: var(--text-color2);
+   
+}
+@media (max-width: 900px){
+
+    .contactText{
+        width: 100%;
+        padding: 20px;
+        position: relative;
+        height: auto;
+        left: 0;
+        padding-top: 0;;
+        top: 0;
+    }   
+    .ContactoPage{
+        padding: 100px 0;
+    } 
+    .contactFlex{
+        flex-direction: column;
+    }
+    .contactFlexText h2{
+        font-size: 20px;
+    }
+}
