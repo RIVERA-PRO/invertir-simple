@@ -1,6 +1,7 @@
 import IndexLayout from "../Layouts/IndexLayout";
-import MainLayout from "../Layouts/MainLayout";
+import PageLayout from "../Layouts/PageLayout";
 import { createBrowserRouter } from "react-router-dom";
+import TestPage from "./TestPage/TestPage";
 export const router = createBrowserRouter([
 
     {
@@ -11,12 +12,12 @@ export const router = createBrowserRouter([
 
     {
         path: "/",
-        element: <MainLayout />,
+        element: <PageLayout />,
         children: [
-            // {
-            //     path: `/dashboard`,
-            //     element: <Main />,
-            // },
+            {
+                path: `/perfil-de-inversor`,
+                element: <TestPage />,
+            },
 
         ],
     },

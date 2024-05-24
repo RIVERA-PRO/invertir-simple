@@ -1,0 +1,188 @@
+.FormTestContain{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10%;
+    justify-content: center;
+    align-items: center;
+   gap: 1rem;
+}
+.sectionTest{
+   
+    display: flex;
+    flex-direction: column;
+    padding: 50px ;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100vh;
+    text-align: center;
+}
+.sectionTest2{
+   
+    display: flex;
+    flex-direction: column;
+    padding: 50px ;
+    justify-content: center;
+    align-items: left;
+    gap: 1rem;
+    height: 100vh;
+}
+.BtnNext{
+    background-color: var(--color1);
+    padding: 10px;
+    color: var(--blanco);
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    width: 8rem;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+.BtnNext2{
+    background-color: var(--color1);
+    padding: 10px;
+    color: var(--blanco);
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    max-width: 100%;
+}
+.sectionTest h2{
+    color: var(--text--color);
+    font-size: 25px;
+}
+.sectionTest h3{
+    color: var(--text--color2);
+    font-weight: 400;
+}
+.sectionTest2 label{
+    color: var(--text--color2);
+    font-weight: 400;
+    font-size: 20px;
+}
+.sectionTest2 strong{
+    color: var(--text--color2);
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 1rem;
+    margin-left: 2.3rem;
+}
+.sectionTest2 span{
+    color: var(--color2)!important;
+    font-weight: 400;
+    font-size: 20px;
+}
+.iconRigth{
+    color: var(--color2)!important;
+    font-size: 17px;
+}
+.email{
+    border: none;
+    border-bottom: 2px solid var(--color1);
+    padding: 10px;
+    font-size: 20px;
+    color: var(--color1);
+}
+.inputRadio {
+    border: 1px solid var(--color1);
+    padding: 7px 20px 7px 7px;
+    background-color: var(--color3);
+    color: var(--color1);
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+  .inputRadio:hover{
+    background-color: var(--color2);
+    color: var(--blanco);
+  }
+  .inputRadio input:checked + label {
+    color: red; /* Cambia el color del texto del label cuando el input está seleccionado */
+  }
+  
+  .inputRadio.selected {
+    background-color: var(--color2);
+    color: var(--blanco);
+  }
+  .inputRadio label{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-align: left;
+    justify-content: left;
+    font-size: 16px;
+   
+  }
+  
+  .inputRadio span{
+    color: var(--color1);
+    background-color: var(--blanco);
+    padding: 6px;
+    border: 1px solid var(--color1);
+    font-size: 12px;
+    font-weight: 700;
+    height: 1.5rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+  }
+
+  .btnsNextPrev{
+    position: fixed;
+    z-index: 2;
+    bottom: 30px;
+    right:  20px;
+    display: flex;
+    background-color: var(--color1);
+  }
+  .btnsNextPrev button{
+    border: none;
+    background-color: var(--color1);
+    padding: 10px;
+    color: var(--blanco);
+    border: 1px solid var(--blanco);
+    cursor: pointer;
+  }
+
+
+  @media (max-width: 900px) {
+    .FormTestContain{
+        padding: 0px 3%;
+    }
+    .sectionTest{
+   
+        padding: 20px ;
+    }
+    .sectionTest2{
+       
+        padding: 20px ;
+    }
+    .sectionTest2 label{
+      font-size: 18px;
+  }
+    .inputRadio label{
+      font-size: 14px;
+     
+    }
+    .sectionTest2 span{
+      font-size: 17px;
+    }.iconRigth{
+      font-size: 15px;
+    }
+    .inputRadio span{
+      font-size: 11px;
+     
+    }
+  .sectionTest2 strong{
+    font-size: 16px;
+}
+
+  }

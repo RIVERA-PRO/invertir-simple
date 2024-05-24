@@ -13,7 +13,7 @@
   --gris2:#f3eeee;
   --color1:#010066 ;
   --color2:#0449a9 ;
-  --color3:rgba(31, 135, 233, 0.455);
+  --color3:rgba(1, 67, 172, 0.167);
   --blanco: #fff;
   --input:#c1bfbf;
   --loading:#0076e479;
@@ -37,7 +37,7 @@ a{
 }
 
   
-.modaldashboard,.modallink{ opacity: 0; animation: slideUp 0.4s ease-in-out forwards; -webkit-animation: slideUp 0.4s ease-in-out forwards;
+.modaldashboard,.modallink,.sectionTest2,.sectionTest{ opacity: 0; animation: slideUp 0.4s ease-in-out forwards; -webkit-animation: slideUp 0.4s ease-in-out forwards;
 }
 
 @keyframes slideFromLeft {
