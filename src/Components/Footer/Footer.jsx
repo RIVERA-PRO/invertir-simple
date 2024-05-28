@@ -52,7 +52,7 @@ export default function Footer() {
                     <Anchor to={`/`} onClick={() => {
                         document.querySelector('.ServiciosContain').scrollIntoView({ behavior: 'smooth' });
                     }}>Servicios</Anchor>
-
+                    <Anchor to={`/dashboard`} >Acceso</Anchor>
 
                 </div>
             </div>

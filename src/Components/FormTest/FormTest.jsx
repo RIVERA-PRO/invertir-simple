@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './FormTest.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import baseURL from '../url';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
 export default function FormTest() {
     const [currentSection, setCurrentSection] = useState('inicio');
     const [sectionHistory, setSectionHistory] = useState(['inicio']);
@@ -12,6 +16,7 @@ export default function FormTest() {
     const [objetivo, setObjetivo] = useState('');
     const [riesgo, setRiesgo] = useState('');
     const [accion, setAccion] = useState('');
+    const [mensaje, setMensaje] = useState('');
 
     const handleNextSection = (nextSection) => {
         setCurrentSection(nextSection);
@@ -134,6 +139,73 @@ export default function FormTest() {
         window.location.reload();
     };
 
+
+    const form = useRef();
+    const crear = async () => {
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('edad', edad);
+        formData.append('conocimiento', conocimiento);
+        formData.append('tiempo', tiempo);
+        formData.append('objetivo', objetivo);
+        formData.append('riesgo', riesgo);
+        formData.append('accion', accion);
+
+        setMensaje('Procesando...');
+
+        try {
+            const response = await fetch(`${baseURL}/consultaPost.php`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            if (data.mensaje) {
+                setMensaje('');
+                toast.success(data.mensaje, { autoClose: 1000 });
+
+            } else if (data.error) {
+                setMensaje('');
+                toast.error(data.error, { autoClose: 1000 });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setMensaje('');
+            toast.error('Error de conexión. Por favor, inténtelo de nuevo.', { autoClose: 1000 });
+        }
+    };
+    const sendEmail = async () => {
+        // Validar campos antes de enviar el correo
+        if (!email || !edad || !conocimiento || !tiempo || !objetivo || !riesgo || !accion) {
+            toast.error('Por favor, complete todos los campos.', { autoClose: 1000 });
+            return; // Detener la ejecución si hay campos vacíos
+        }
+
+        try {
+            await emailjs.sendForm('service_kexmlmj', 'template_gup5no8', form.current, {
+                publicKey: '1F_ENZZ9Bayx5E1Ls',
+            });
+            console.log('Correo enviado exitosamente');
+            crear(); // Llama a la función para enviar los datos al servidor después de enviar el correo
+        } catch (error) {
+            console.log('Error al enviar el correo:', error.text, { autoClose: 1000 });
+            toast.error('Error al enviar el correo. Por favor, inténtelo de nuevo.', { autoClose: 1000 });
+        }
+    };
+
+    useEffect(() => {
+        const enviarCorreoAutomaticamente = async () => {
+            if (currentSection === 'fin') {
+                // Agrega aquí cualquier condición adicional que desees verificar antes de enviar el correo automáticamente
+
+                // Envía el correo electrónico automáticamente
+                await sendEmail();
+            }
+        };
+
+        enviarCorreoAutomaticamente();
+    }, [currentSection]);
     const renderSection = (sectionKey) => {
         const section = sections[sectionKey];
 
@@ -176,6 +248,7 @@ export default function FormTest() {
 
     return (
         <div className='FormTestContain'>
+            <ToastContainer />
             {currentSection === 'inicio' && (
                 <section className='sectionTest' id='inicio'>
                     <h2>Test del Inversor</h2>
@@ -198,15 +271,73 @@ export default function FormTest() {
                     <h3>Muchas Gracias</h3>
                     <button className='BtnNext2' onClick={() => handleReload()}>
                         Realizar un nuevo perfil</button>
-                    {/* <div>
-                        <p>Email: {email}</p>
-                        <p>Rango de Edad: {edad}</p>
-                        <p>Conocimiento en inversiones: {conocimiento}</p>
-                        <p>Tiempo de inversión: {tiempo}</p>
-                        <p>Objetivo de inversión: {objetivo}</p>
-                        <p>Riesgo tolerado: {riesgo}</p>
-                        <p>Acción ante pérdida: {accion}</p>
-                    </div> */}
+
+
+                    <form className='form' ref={form} onSubmit={sendEmail} id='formNone'>
+                        <h3>Hace tu consulta</h3>
+                        <input
+                            type='email'
+                            name='email'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder='Email'
+                        />
+
+                        <input
+                            type='text'
+                            name='edad'
+                            value={edad}
+                            onChange={(e) => setEdad(e.target.value)}
+                            placeholder='edad'
+                        />
+
+                        <input
+                            type='text'
+                            name='conocimiento'
+                            value={conocimiento}
+                            onChange={(e) => setConocimiento(e.target.value)}
+                            placeholder='conocimiento'
+                        />
+                        <input
+                            type='text'
+                            name='tiempo'
+                            value={tiempo}
+                            onChange={(e) => setTiempo(e.target.value)}
+                            placeholder='tiempo'
+                        />
+                        <input
+                            type='text'
+                            name='objetivo'
+                            value={objetivo}
+                            onChange={(e) => setObjetivo(e.target.value)}
+                            placeholder='objetivo'
+                        />
+
+                        <input
+                            type='text'
+                            name='riesgo'
+                            value={riesgo}
+                            onChange={(e) => setRiesgo(e.target.value)}
+                            placeholder='riesgo'
+                        />
+                        <input
+                            type='text'
+                            name='accion'
+                            value={accion}
+                            onChange={(e) => setAccion(e.target.value)}
+                            placeholder='accion'
+                        />
+
+                        {mensaje ? (
+                            <button type='button' className='btn' disabled>
+                                {mensaje}
+                            </button>
+                        ) : (
+                            <button type="submit" value="Send" className='btn' >
+                                Enviar
+                            </button>
+                        )}
+                    </form>
                 </section>
             )}
         </div>

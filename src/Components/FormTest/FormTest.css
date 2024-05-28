@@ -151,7 +151,9 @@
     border: 1px solid var(--blanco);
     cursor: pointer;
   }
-
+#formNone{
+  display: none;
+}
 
   @media (max-width: 900px) {
     .FormTestContain{

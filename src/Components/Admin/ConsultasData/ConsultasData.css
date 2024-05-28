@@ -1,0 +1,14 @@
+.deFlexBtnSend{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+.deFlexBtnSend button{
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--color1);
+    color: var(--blanco);
+    border-radius: 10px;
+   
+}
