@@ -28,6 +28,7 @@ try {
         $email = $_POST['email'];
         $contrasena = $_POST['contrasena'];
         $rol = $_POST['rol'];
+        $estado = $_POST['estado'];
 
         // Verificar si el usuario ya existe
         $sqlVerificar = "SELECT * FROM `usuarios` WHERE email = :email";
@@ -40,7 +41,7 @@ try {
             echo json_encode(["error" => "Ya existe un usuario con ese correo electrónico"]);
         } else {
             // Insertar nuevo usuario si no existe
-            if (!empty($nombre) && !empty($email) && !empty($contrasena)  && !empty($rol)) {
+            if (!empty($nombre) && !empty($email) && !empty($contrasena)  && !empty($rol)  && !empty($estado)) {
                 // Verificar la longitud de la contraseña
                 if (strlen($contrasena) < 6) {
                     echo json_encode(["error" => "La contraseña debe tener al menos 6 caracteres"]);
@@ -51,13 +52,14 @@ try {
                     // Obtener la fecha actual
                     $fechaActual = date("Y-m-d H:i:s");
 
-                    $sqlInsert = "INSERT INTO `usuarios` (nombre, email, contrasena, rol, createdAt) 
-                                  VALUES (:nombre, :email, :contrasena, :rol, :createdAt)";
+                    $sqlInsert = "INSERT INTO `usuarios` (nombre, email, contrasena, rol,estado, createdAt) 
+                                  VALUES (:nombre, :email, :contrasena, :rol,:estado, :createdAt)";
                     $stmt = $conexion->prepare($sqlInsert);
                     $stmt->bindParam(':nombre', $nombre);
                     $stmt->bindParam(':email', $email);
                     $stmt->bindParam(':contrasena', $hashContrasena);
                     $stmt->bindParam(':rol', $rol);
+                    $stmt->bindParam(':estado', $estado);
                     $stmt->bindParam(':createdAt', $fechaActual);
 
                     $stmt->execute();

@@ -1,0 +1,17 @@
+.SinPermisos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    place-content: center;
+    padding: 10px 10%;
+    width: 100%;
+    height: 90vh;
+}
+.SinPermisos h1{
+    text-align: center;
+    
+}

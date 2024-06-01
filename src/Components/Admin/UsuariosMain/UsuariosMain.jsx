@@ -42,6 +42,7 @@ export default function UsuariosData() {
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Rol</th>
+                        <th>Estado</th>
                         <th>Fecha</th>
 
                     </tr>
@@ -54,9 +55,12 @@ export default function UsuariosData() {
                             <td>{usuario.email}</td>
 
                             <td style={{
-                                color: usuario?.rol === 'usuario' ? '#DAA520' : usuario?.rol === 'admin' ? 'green' : 'red',
+                                color: usuario?.rol === 'cliente' ? '#DAA520' : usuario?.rol === 'admin' ? 'green' : 'red',
                             }}>  {`${usuario?.rol}`}</td>
+                            <td style={{
+                                color: usuario?.estado === 'inactivo' ? '#FF0000' : usuario?.estado === 'activo' ? '#008000' : '#FF0000',
 
+                            }}>  {`${usuario?.estado}`}</td>
                             <td>{usuario.createdAt}</td>
                         </tr>
                     ))}

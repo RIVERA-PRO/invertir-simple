@@ -33,7 +33,7 @@ try {
     $usuarioId = $_SESSION['usuario_id'];
 
     // Consulta SQL para obtener datos del usuario sin la imagen
-    $sqlSelectUsuario = "SELECT idUsuario, nombre, email, rol FROM `usuarios` WHERE idUsuario = :idUsuario";
+    $sqlSelectUsuario = "SELECT idUsuario, nombre, email, rol ,estado FROM `usuarios` WHERE idUsuario = :idUsuario";
     $stmtUsuario = $conexion->prepare($sqlSelectUsuario);
     $stmtUsuario->bindParam(':idUsuario', $usuarioId);
 

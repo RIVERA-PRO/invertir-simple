@@ -26,7 +26,7 @@ try {
         $contrasenaLogin = $_POST['contrasena'];
 
         // Verificar las credenciales del usuario
-        $sqlCheckCredenciales = "SELECT idUsuario, nombre, email, contrasena, rol FROM `usuarios` WHERE email = :email";
+        $sqlCheckCredenciales = "SELECT idUsuario, nombre, email, contrasena, rol, estado FROM `usuarios` WHERE email = :email";
         $stmtCheckCredenciales = $conexion->prepare($sqlCheckCredenciales);
         $stmtCheckCredenciales->bindParam(':email', $emailLogin);
         $stmtCheckCredenciales->execute();
@@ -36,20 +36,37 @@ try {
             $contrasenaHash = $row['contrasena'];
 
             if (password_verify($contrasenaLogin, $contrasenaHash)) {
-                // Iniciar sesión solo si el rol es 'admin'
-                if ($row['rol'] == 'admin') {
-                    session_start();
-                    $_SESSION['usuario_id'] = $row['idUsuario'];
-                    $_SESSION['rol'] = $row['rol'];
+                // Iniciar sesión según el rol y estado
+                if ($row['estado'] == 'activo') {
+                    if ($row['rol'] == 'admin') {
+                        session_start();
+                        $_SESSION['usuario_id'] = $row['idUsuario'];
+                        $_SESSION['rol'] = $row['rol'];
 
-                    // Añadir nombre y email al array del usuario
-                    $usuario = [
-                        "idUsuario" => $row['idUsuario'],
-                        "nombre" => $row['nombre'],
-                        "email" => $row['email'],
-                    ];
+                        // Añadir nombre y email al array del usuario
+                        $usuario = [
+                            "idUsuario" => $row['idUsuario'],
+                            "nombre" => $row['nombre'],
+                            "email" => $row['email'],
+                        ];
 
-                    echo json_encode(["mensaje" => "Inicio de sesión exitoso como administrador", "redirect" => "dashboard.php", "usuario" => $usuario]);
+                        echo json_encode(["mensaje" => "Inicio de sesión exitoso como administrador", "redirect" => "dashboard.php", "usuario" => $usuario]);
+                    } elseif ($row['rol'] == 'cliente') {
+                        session_start();
+                        $_SESSION['usuario_id'] = $row['idUsuario'];
+                        $_SESSION['rol'] = $row['rol'];
+
+                        // Añadir nombre y email al array del usuario
+                        $usuario = [
+                            "idUsuario" => $row['idUsuario'],
+                            "nombre" => $row['nombre'],
+                            "email" => $row['email'],
+                        ];
+
+                        echo json_encode(["mensaje" => "Inicio de sesión exitoso como cliente", "redirect" => "cliente_dashboard.php", "usuario" => $usuario]);
+                    } else {
+                        echo json_encode(["error" => "No tienes permisos para acceder"]);
+                    }
                 } else {
                     echo json_encode(["error" => "No tienes permisos para acceder"]);
                 }

@@ -12,7 +12,7 @@ export default function Logout() {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch(`./logout.php`, {
+            const response = await fetch(`${baseURL}/logout.php`, {
                 method: 'GET',
             });
 

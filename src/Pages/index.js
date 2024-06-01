@@ -1,12 +1,15 @@
 import IndexLayout from "../Layouts/IndexLayout";
 import PageLayout from "../Layouts/PageLayout";
 import MainLayout from "../Layouts/MainLayout";
+import ClientePage from "../Layouts/ClientePage";
 import { createBrowserRouter } from "react-router-dom";
 import TestPage from "./TestPage/TestPage";
 import Usuarios from '../Pages/Usuarios/Usuarios'
 import Main from "./Main/Main";
 import Consultas from './Consultas/Consultas'
+
 export const router = createBrowserRouter([
+
 
     {
         path: "/",
@@ -43,6 +46,20 @@ export const router = createBrowserRouter([
                 path: `/dashboard/consultas`,
                 element: <Consultas />,
             },
+        ],
+    },
+
+    {
+        path: "/",
+        element: <ClientePage />,
+        children: [
+            {
+                path: `/cliente`,
+                element: <Main />,
+            },
+
+
+
         ],
     },
 

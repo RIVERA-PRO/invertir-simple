@@ -1,0 +1,136 @@
+.modalVideo {
+   
+ 
+   
+    right: auto;
+    bottom: auto;
+  
+   
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100vh;
+    height: 80vh;
+    overflow-y: auto;
+    
+}
+
+.overlayVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardVideo{
+   cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 30%;
+   
+    /* background-color: var(--blanco);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.114); */
+}
+.cardVideo h3{
+    color: var(--color1);
+    font-size: 19px;
+}
+.cardVideo p{
+    color: var(--text-color2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30ch;
+    font-weight: 400;
+    font-size: 19px;
+}
+.videosGrap{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 3rem;
+   
+}
+.deFlexVideoText{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.cardVideoText{
+    padding: 10px;
+}
+.video-preview video{
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.modalVideoContent video{
+    width: 100%;
+    height: 50vh;
+    border-radius: 10px;
+    
+}
+.modalVideoContent{
+    display: flex;
+    flex-direction: column;
+    
+}
+.modalVideoContent h3{
+    color: var(--color1);
+    font-size: 19px;
+}
+.modalVideoContent p{
+    color: var(--text-color2);
+    font-weight: 400;
+    font-size: 19px;
+}
+@media (max-width: 1024px){
+    .modalVideo {
+       
+        padding: 0;
+        border-radius: 0;
+        width: 100%;
+        height: 90vh;
+       
+}
+.overlayVideo {
+   
+    align-items:end;
+}
+
+.modalVideoContent video{
+    width: 100%;
+    height: 30vh;
+    border-radius: 0;
+}
+.modalVideoContent .deFlexModal{
+    padding: 15px;
+    background-color: var(--color1);
+    color: var(--blanco);
+}
+.modalVideoContent .deFlexModal h3{
+  
+    color: var(--blanco);
+}
+.cardVideo{
+     width: 100%;
+     height: 16rem;
+ }
+ .videosGrap{
+   padding: 15px;
+}
+.video-preview video{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+
+}
+}

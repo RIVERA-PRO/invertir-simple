@@ -11,6 +11,7 @@ export default function Register() {
     const [email, setEmail] = useState('');
     const [rol, setRol] = useState(''); // Estado para el rol
     const [contrasena, setContrasena] = useState('');
+    const [estado, setEstado] = useState('');
     const [mensaje, setMensaje] = useState('');
     const [mensaje2, setMensaje2] = useState('');
     const [error, setError] = useState('');
@@ -31,7 +32,7 @@ export default function Register() {
             formData.append('email', email);
             formData.append('rol', rol);
             formData.append('contrasena', contrasena);
-
+            formData.append('estado', estado);
             const response = await fetch(`${baseURL}/registroPost.php`, {
                 method: 'POST',
                 body: formData,
@@ -123,11 +124,24 @@ export default function Register() {
                                         required
                                     >
                                         <option value="">Seleccione un rol</option>
-                                        <option value="usuario">Usuario</option>
+                                        <option value="cliente">Cliente</option>
                                         <option value="admin">Admin</option>
                                     </select>
                                 </fieldset>
-
+                                <fieldset>
+                                    <legend>Estado</legend>
+                                    <select
+                                        id="estado"
+                                        name="estado"
+                                        value={estado}
+                                        onChange={(e) => setEstado(e.target.value)}
+                                        required
+                                    >
+                                        <option value="">Seleccione un estado</option>
+                                        <option value="activo">Activo</option>
+                                        <option value="inactivo">Inactivo</option>
+                                    </select>
+                                </fieldset>
                                 <fieldset>
                                     <legend>Contraseña</legend>
                                     <div className='deFlexPass'>

@@ -33,8 +33,6 @@ try {
         }
     }
 
-  
-
 
     // Crear tabla 'usuarios' si no existe
     $consultaUsuarios = "CREATE TABLE IF NOT EXISTS `usuarios` (
@@ -43,6 +41,7 @@ try {
         email VARCHAR(100) NOT NULL,
         contrasena VARCHAR(255) NOT NULL,
         rol  VARCHAR(100) NOT NULL,
+        estado  VARCHAR(20) NOT NULL,
         createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
     crearTablaSiNoExiste($conexion, 'usuarios', $consultaUsuarios);
@@ -63,8 +62,8 @@ try {
     crearTablaSiNoExiste($conexion, 'consultas', $consultaConsultas);
 
 // Insertar nuevo usuario admin
-$sqlInsertAdmin = "INSERT INTO `usuarios` (nombre, email, contrasena, rol, createdAt) 
-                  VALUES ('admin', 'admin@gmail.com', :contrasenaAdmin, 'admin', NOW())";
+$sqlInsertAdmin = "INSERT INTO `usuarios` (nombre, email, contrasena, rol,estado, createdAt) 
+                  VALUES ('admin', 'admin@gmail.com', :contrasenaAdmin, 'admin','activo', NOW())";
 $stmtAdmin = $conexion->prepare($sqlInsertAdmin);
 $stmtAdmin->bindParam(':contrasenaAdmin', $contrasenaAdmin);
 $stmtAdmin->execute();

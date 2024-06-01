@@ -4,6 +4,7 @@ import { Link as Anchor } from 'react-router-dom';
 import 'swiper/swiper-bundle.css';
 import './Navbar.css'
 import contact from '../contact'
+import AuthCliente from '../Admin/AuthCliente/AuthCliente'
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -55,7 +56,8 @@ export default function Navbar() {
                     }}> Contacto</Anchor>
 
                 </div>
-                <div className='deNoneNav'>
+                <AuthCliente />
+                {/* <div className='deNoneNav'>
 
                     {
                         contact.map(item => (
@@ -66,7 +68,7 @@ export default function Navbar() {
                             </div>
                         ))
                     }
-                </div>
+                </div> */}
                 <div className={`nav_toggle  ${isOpen && "open"}`} onClick={() => setIsOpen(!isOpen)}>
                     <span></span>
                     <span></span>

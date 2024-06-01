@@ -21,6 +21,10 @@ nav{
 .nav-scroll{
     background-color: var(--color1);
 }
+.nav-scroll .iconUser{ 
+    background-color: var(--blanco);
+    color: var(--color1);
+}
 .deFLexNavs{
     display: flex !important;
     flex-direction: row !important;
@@ -208,7 +212,10 @@ nav{
   }
 
  
-  
+  .nav-scroll .iconUser{ 
+    background-color: transparent;
+    color: var(--blanco);
+}
 
  
 

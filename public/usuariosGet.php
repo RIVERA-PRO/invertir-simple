@@ -25,7 +25,7 @@ try {
 
     // Consulta SQL para obtener todos los usuarios
     if ($metodo == 'GET') {
-        $sqlSelect = "SELECT idUsuario, nombre, email, rol, createdAt FROM usuarios";
+        $sqlSelect = "SELECT idUsuario, nombre, email, rol,estado, createdAt FROM usuarios";
         $sentencia = $conexion->prepare($sqlSelect);
 
         if ($sentencia->execute()) {
@@ -67,16 +67,16 @@ try {
             exit;
         }
 
-        // Consulta SQL para actualizar el rol del usuario por ID
-        $sqlUpdate = "UPDATE usuarios SET rol = :rol WHERE idUsuario = :idUsuario";
+        // Consulta SQL para actualizar el estado del usuario por ID
+        $sqlUpdate = "UPDATE usuarios SET estado = :estado WHERE idUsuario = :idUsuario";
         $sentencia = $conexion->prepare($sqlUpdate);
-        $sentencia->bindParam(':rol', $datos['rol']);
+        $sentencia->bindParam(':estado', $datos['estado']);
         $sentencia->bindParam(':idUsuario', $idUsuario, PDO::PARAM_INT);
 
         if ($sentencia->execute()) {
-            echo json_encode(["mensaje" => "Rol de usuario actualizado correctamente"]);
+            echo json_encode(["mensaje" => "Estado de usuario actualizado correctamente"]);
         } else {
-            echo json_encode(["error" => "Error al actualizar el rol del usuario: " . implode(", ", $sentencia->errorInfo())]);
+            echo json_encode(["error" => "Error al actualizar el estado del usuario: " . implode(", ", $sentencia->errorInfo())]);
         }
     }
 } catch (PDOException $error) {

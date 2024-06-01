@@ -31,7 +31,7 @@ export default function InfoUserMain() {
             {loading ? (
                 <div>cargando</div>
             ) : usuario.idUsuario ? (
-                <Anchor to={``} className='infoUser'>
+                <Anchor to={`/dashboard`} className='infoUser'>
                     <span className='iconName'> {usuario.nombre.slice(0, 1)}</span>
                     <span className='name'>   {usuario.nombre}</span>
                     <span className='email'>  {usuario.email} </span>
@@ -40,12 +40,13 @@ export default function InfoUserMain() {
 
                 </Anchor>
             ) : (
-                <Anchor to={``} className='infoUser'>
+                <Anchor to={`/dashboard`} className='infoUser'>
 
-                    <span className='iconName'> </span>
-                    <span className='name'> </span>
-                    <span className='email'> </span>
+                    <span className='iconName'></span>
+                    <span className='name'></span>
+                    <span className='email'></span>
                     <span className='rol'> </span>
+
                 </Anchor>
             )}
         </div>

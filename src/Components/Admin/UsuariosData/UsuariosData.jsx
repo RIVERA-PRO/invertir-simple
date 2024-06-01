@@ -66,27 +66,27 @@ export default function UsuariosData() {
         });
     };
 
-    const editarUsuario = (idUsuario, rolActual) => {
+    const editarUsuario = (idUsuario, estadoActual) => {
         Swal.fire({
-            title: 'Editar Rol',
+            title: 'Editar Estado',
             input: 'select',
             inputOptions: {
-                'usuario': 'Usuario',
-                'admin': 'Admin'
+                'activo': 'Activo',
+                'inactivo': 'Inactivo'
             },
-            inputValue: rolActual,
+            inputValue: estadoActual,
             showCancelButton: true,
             confirmButtonText: 'Guardar',
             cancelButtonText: 'Cancelar',
         }).then((result) => {
             if (result.isConfirmed) {
-                const nuevoRol = result.value;
+                const nuevoEstado = result.value;
                 fetch(`${baseURL}/usuariosGet.php?idUsuario=${idUsuario}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ rol: nuevoRol }),
+                    body: JSON.stringify({ estado: nuevoEstado }),
                 })
                     .then(response => response.json())
                     .then(data => {
@@ -98,7 +98,7 @@ export default function UsuariosData() {
                         cargarUsuarios();
                     })
                     .catch(error => {
-                        console.error('Error al editar el rol del usuario:', error)
+                        console.error('Error al editar el usuario:', error)
                         toast.success(error);
                     });
             }
@@ -195,7 +195,7 @@ export default function UsuariosData() {
 
                         <select value={filtroRol} onChange={(e) => setFiltroRol(e.target.value)}>
                             <option value="">Todos</option>
-                            <option value="usuario">Usuario</option>
+                            <option value="cliente">Cliente</option>
                             <option value="admin">Admin</option>
                         </select>
                     </div>
@@ -220,6 +220,7 @@ export default function UsuariosData() {
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Rol</th>
+                            <th>Estado</th>
                             <th>Fecha Creación</th>
                             <th>Acciones</th>
                         </tr>
@@ -231,15 +232,19 @@ export default function UsuariosData() {
                                 <td>{usuario.nombre}</td>
                                 <td>{usuario.email}</td>
                                 <td style={{
-                                    color: usuario?.rol === 'usuario' ? '#DAA520' : usuario?.rol === 'admin' ? '#008000' : '#FF0000',
+                                    color: usuario?.rol === 'cliente' ? '#DAA520' : usuario?.rol === 'admin' ? '#008000' : '#FF0000',
 
                                 }}>  {`${usuario?.rol}`}</td>
+                                <td style={{
+                                    color: usuario?.estado === 'inactivo' ? '#FF0000' : usuario?.estado === 'activo' ? '#008000' : '#FF0000',
+
+                                }}>  {`${usuario?.estado}`}</td>
                                 <td>{usuario.createdAt}</td>
                                 <td>
 
                                     <button className='eliminar' onClick={() => eliminarUsuario(usuario.idUsuario)}><FontAwesomeIcon icon={faTrash} /></button>
 
-                                    <button className='editar' onClick={() => editarUsuario(usuario.idUsuario, usuario.rol)}><FontAwesomeIcon icon={faEdit} /></button>
+                                    <button className='editar' onClick={() => editarUsuario(usuario.idUsuario, usuario.estado)}><FontAwesomeIcon icon={faEdit} /></button>
                                 </td>
                             </tr>
                         ))}
