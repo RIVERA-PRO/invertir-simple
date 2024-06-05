@@ -11,14 +11,25 @@ import InfoUserMain from '../InfoUserMain/InfoUserMain';
 import baseURL from '../../url';
 import Spiner from '../../Admin/Spiner/Spiner';
 import Logout from '../../Admin/Logout/Logout';
+
 export default function AuthCliente() {
     const [showLogin, setShowLogin] = useState(true);
     const [isOpen, setIsOpen] = useState(false);
-    const toggleComponent = () => {
-        setShowLogin((prevShowLogin) => !prevShowLogin);
-    };
+    const [modalContent, setModalContent] = useState(null);
     const [usuario, setUsuario] = useState({});
     const [loading, setLoading] = useState(true);
+
+    const openLoginModal = () => {
+        setShowLogin(true);
+        setModalContent('login');
+        setIsOpen(true);
+    };
+
+    const openRegisterModal = () => {
+        setShowLogin(false);
+        setModalContent('register');
+        setIsOpen(true);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,7 +41,6 @@ export default function AuthCliente() {
                 const data = await response.json();
                 setUsuario(data);
                 setLoading(false);
-
             } catch (error) {
                 console.error('Error al obtener datos:', error);
                 setLoading(false);
@@ -39,9 +49,11 @@ export default function AuthCliente() {
 
         fetchData();
     }, []);
+
     return (
         <div className='AuthContainerClient'>
-            <h2 onClick={() => setIsOpen(!isOpen)} className='iconUser'> <FontAwesomeIcon icon={faUser} /> <span> Acceso</span></h2>
+            <button onClick={openRegisterModal} className='authButtonRegister'>Abrí tu cuenta</button>
+            <button onClick={openLoginModal} className='authButtonLogin'>Ingresar</button>
 
             <Modal
                 isOpen={isOpen}
@@ -51,7 +63,7 @@ export default function AuthCliente() {
             >
                 <div className="modalAuth-content">
                     <div className='deFlexModal'>
-                        <span onClick={() => setIsOpen(!isOpen)} className="closeModal">
+                        <span onClick={() => setIsOpen(false)} className="closeModal">
                             <FontAwesomeIcon icon={faArrowLeft} />
                         </span>
                         <h3>Mi cuenta</h3>
@@ -65,23 +77,12 @@ export default function AuthCliente() {
                         </>
                     ) : (
                         <>
-                            <Anchor to={`/`} >
+                            <Anchor to={`/`}>
                                 <img src={user} alt="imagen" className='logoAtuh' />
                             </Anchor>
-                            {showLogin ? <LoginCliente /> : <RegisterCliente />}
-
-                            <div className="toggle-link">
-                                {showLogin ? (
-                                    <p>¿No tienes una cuenta? <span onClick={toggleComponent} className='toggleText'>Regístrate</span></p>
-                                ) : (
-                                    <p>¿Ya tienes una cuenta? <span onClick={toggleComponent} className='toggleText'>Inicia sesión</span></p>
-                                )}
-                            </div>
-
+                            {modalContent === 'login' ? <LoginCliente /> : <RegisterCliente />}
                         </>
                     )}
-
-
                 </div>
             </Modal>
         </div>

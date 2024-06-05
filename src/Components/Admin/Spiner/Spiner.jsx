@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../images/logo.png';
+import logo from '../../../images/icon.PNG';
 import './Spiner.css';  // Asegúrate de importar el archivo CSS donde definirás los estilos del spinner.
 
 export default function Spiner() {

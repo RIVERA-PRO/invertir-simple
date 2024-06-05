@@ -6,6 +6,7 @@ import 'swiper/swiper-bundle.css';
 import banner1 from '../../images/banner1.jpg'
 import banner2 from '../../images/banner2.jpg'
 import BtnContact from '../BtnContact/BtnContact';
+import phone from '../../images/phone.jpg'
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 export default function Banners() {
@@ -15,16 +16,16 @@ export default function Banners() {
 
         {
             img: banner2,
-            titulo: 'Asesoramiento integral y personalizado',
-            subtitulo: 'Dedicada a brindar servicios financieros.',
-            parrafo: 'Te acercamos al mundo de las finanzas de manera SIMPLE.',
-
+            titulo: 'Revoluciona tu forma de ahorrar dinero e invertir online',
+            subtitulo: 'Descarga la app de Banza y aprende a invertir dinero en bolsa fácil y seguro',
+            párrafo: 'Te acercamos al mundo de las finanzas de manera SIMPLE.',
         },
+
         {
             img: banner1,
-            titulo: 'Asesoramiento integral y personalizado',
-            subtitulo: 'Dedicada a brindar servicios financieros.',
-            parrafo: 'Te acercamos al mundo de las finanzas de manera SIMPLE.',
+            titulo: 'Revoluciona tu forma de ahorrar dinero e invertir online',
+            subtitulo: 'Descarga la app de Banza y aprende a invertir dinero en bolsa fácil y seguro',
+            párrafo: 'Te acercamos al mundo de las finanzas de manera SIMPLE.',
 
         },
 
@@ -52,12 +53,16 @@ export default function Banners() {
                 <SwiperSlide id='SwiperSlide-scroll'>
                     <img src={item.img} alt={`imagen-`} />
                     <div className='bannerText'>
-                        <h1>{item.titulo}</h1>
-                        <h3>{item.subtitulo}</h3>
-                        <p>{item.parrafo}</p>
-                        <BtnContact />
-
+                        <div className='bannerText2'>
+                            <h1>{item.titulo}</h1>
+                            <hr />
+                            <h3>{item.subtitulo}</h3>
+                            <p>{item.parrafo}</p>
+                            <BtnContact />
+                        </div>
+                        <img src={phone} alt="" />
                     </div>
+
                 </SwiperSlide>
             ))}
         </Swiper>

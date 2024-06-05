@@ -10,12 +10,8 @@
 .AuthContainer img{
     width: 100px;
     object-fit: cover;
-    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
-    border-radius: 100%;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    -o-border-radius: 100%;
+   
+  
 }
 .sinCuenta{
     background-color: transparent;

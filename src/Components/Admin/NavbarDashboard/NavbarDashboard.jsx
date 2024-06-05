@@ -3,7 +3,7 @@ import './NavbarDashboard.css'
 import { Link as Anchor, useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faBook, faImage, faAddressBook, faTachometerAlt, faCode, faMessage } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../../images/logo.png'
+import logo from '../../../images/icon.PNG'
 import Logout from '../Logout/Logout';
 import baseURL from '../../url';
 export default function Navbar() {

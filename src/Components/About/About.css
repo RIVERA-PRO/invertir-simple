@@ -28,7 +28,7 @@
     color: var(--text-color2);
     font-size: 15px;
 }
-@media (max-width: 700px){
+@media (max-width: 900px){
     .About{
         display: flex;
         padding: 50px 3%;

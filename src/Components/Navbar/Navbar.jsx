@@ -4,6 +4,7 @@ import { Link as Anchor } from 'react-router-dom';
 import 'swiper/swiper-bundle.css';
 import './Navbar.css'
 import contact from '../contact'
+import logo from '../../images/logo.png'
 import AuthCliente from '../Admin/AuthCliente/AuthCliente'
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function Navbar() {
             <nav className={isScrolled ? 'nav-scroll' : ''}>
 
                 <Anchor to={`/`} className='logo'>
-                    <h1>Invertir Simple</h1>
+                    <img src={logo} alt="imagen" className='logoAtuh' />
                 </Anchor>
 
 
@@ -56,19 +57,11 @@ export default function Navbar() {
                     }}> Contacto</Anchor>
 
                 </div>
-                <AuthCliente />
-                {/* <div className='deNoneNav'>
 
-                    {
-                        contact.map(item => (
-                            <div class="redes-sociales">
-                                <Anchor to={item.instagram} target="_blank"><i className='fa fa-instagram'></i></Anchor>
-                                <Anchor to={`tel:${item.telefono}`} target="_blank"><i className='fa fa-whatsapp'></i></Anchor>
-                                <Anchor to={item.facebook} target="_blank"><i className='fa fa-facebook'></i></Anchor>
-                            </div>
-                        ))
-                    }
-                </div> */}
+                <div className='deNoneNav'>
+                    <AuthCliente />
+
+                </div>
                 <div className={`nav_toggle  ${isOpen && "open"}`} onClick={() => setIsOpen(!isOpen)}>
                     <span></span>
                     <span></span>
@@ -84,7 +77,7 @@ export default function Navbar() {
                         <div className='bgNav'>
 
                             <Anchor to={`/`} className='logo'>
-                                <h1>Invertir Simple</h1>
+                                <img src={logo} alt="imagen" className='logoAtuh' />
                             </Anchor>
                         </div>
                         <div className='enlaces2'>
@@ -107,7 +100,12 @@ export default function Navbar() {
                                 setIsOpen(!isOpen);
                             }}> Contacto</Anchor>
 
+                            <div className='deFLexNavs'>
+                                <AuthCliente />
+
+                            </div>
                         </div>
+
 
                     </div>
                 </Modal>

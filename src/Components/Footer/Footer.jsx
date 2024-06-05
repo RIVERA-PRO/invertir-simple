@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css'
 import { Link as Anchor } from 'react-router-dom';
 import contact from '../contact'
+import logo from '../../images/icon.PNG'
 export default function Footer() {
 
 
@@ -10,7 +11,10 @@ export default function Footer() {
         <div className='FooterContain'>
             <div className='Footer'>
                 <div className='footerText'>
-                    <h1 className='logoFooter'>  Invertir Simple</h1>
+                    <Anchor to={`/`} className='logo'>
+                        <img src={logo} alt="imagen" className='logoAtuh' />
+                    </Anchor>
+
 
                     {
                         contact.map(item => (
