@@ -9,6 +9,7 @@ import Planes from '../Components/Planes/Planes';
 import Empezar from '../Components/Empezar/Empezar';
 import Aliados from '../Components/Aliados/Aliados';
 import SectionContact from '../Components/SectionContact/SectionContact';
+import ApiBrca from '../Components/ApiBrca/ApiBrca';
 export default function IndexLayout() {
 
 
@@ -23,6 +24,7 @@ export default function IndexLayout() {
             <SectionContact />
             <Servicios />
             <Planes />
+            <ApiBrca />
             <Aliados />
             <Footer />
             <BtnWhatsapp />

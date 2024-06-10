@@ -7,7 +7,7 @@ import TestPage from "./TestPage/TestPage";
 import Usuarios from '../Pages/Usuarios/Usuarios'
 import Main from "./Main/Main";
 import Consultas from './Consultas/Consultas'
-
+import CalculaPage from "./CalculaPage/CalculaPage";
 export const router = createBrowserRouter([
 
 
@@ -24,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: `/perfil-de-inversor`,
                 element: <TestPage />,
+            },
+            {
+                path: `/calcula-tu-ahorro`,
+                element: <CalculaPage />,
             },
 
         ],

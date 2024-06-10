@@ -55,7 +55,10 @@ export default function Navbar() {
                     <Anchor to={`/`} onClick={() => {
                         document.querySelector('.FooterContain').scrollIntoView({ behavior: 'smooth' });
                     }}> Contacto</Anchor>
+                    <Anchor to={`/calcula-tu-ahorro`} onClick={() => {
 
+                        setIsOpen(!isOpen);
+                    }}> Calculá</Anchor>
                 </div>
 
                 <div className='deNoneNav'>
@@ -99,7 +102,10 @@ export default function Navbar() {
                                 document.querySelector('.FooterContain').scrollIntoView({ behavior: 'smooth' });
                                 setIsOpen(!isOpen);
                             }}> Contacto</Anchor>
+                            <Anchor to={`/calcula-tu-ahorro`} onClick={() => {
 
+                                setIsOpen(!isOpen);
+                            }}> Calculá</Anchor>
                             <div className='deFLexNavs'>
                                 <AuthCliente />
 

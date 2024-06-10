@@ -1,0 +1,119 @@
+.CalculoContain{
+    display: flex;
+    padding: 100px 10%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 100vh;
+  
+}
+
+.deFlexInputsCalculo{
+    display: flex;
+    gap: 10px;
+}
+.Calculo2ContainText{
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.CalculoContainText{
+    border: 1px solid var(--input);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.bgParrafo{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--color5);
+   
+}
+.CalculoContain h2{
+    color: var(--text-color2);
+    font-size: 30px;
+    font-weight: 500;
+}
+.CalculoContain h3{
+    color: var(--text-color2);
+    font-weight: 500;
+}
+.CalculoContain h2 span{
+    color: var(--color5);
+    font-size: 35px;
+   
+}
+.Calculo2ContainText h3{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.btnCal {
+   background-color: var(--color5);
+   border: none;
+   padding: 15px;
+   border-radius: 10rem;
+   font-size: 17px;
+   width: 100%;
+}
+
+.Modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    margin: auto;
+
+}
+
+.Overlay {
+    background: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+
+@media (max-width: 900px) {
+    .CalculoContain{
+        padding: 100px 4%;
+        height: 100%;
+        flex-direction: column;
+    }
+    .bgParrafo{
+        gap: 1rem;
+        padding: 13px;
+       
+    }
+    .bgParrafo p{
+        font-size: 13px;
+    }
+}

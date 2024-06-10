@@ -1,0 +1,101 @@
+.ApiBrca{
+    display: flex;
+    flex-direction: column;
+     justify-content: space-between;
+     padding: 50px 10%;
+     
+}
+
+.table-responsive{
+   max-height: 60vh;
+   overflow: auto;
+   padding: 10px;
+   border-radius: 10px;
+   border: 1px solid var(--color1);
+  
+}
+.table-responsive::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+    background-color: transparent;
+   
+}
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: var(--color1); 
+    border-radius: 10px;
+    padding-top: 2rem;
+  }
+
+  .tableApi {
+    width: 100%;
+  /* table-layout: fixed; */
+  text-align: left;
+   
+}
+.tableApi tbody  {
+    height: 20vh!important;
+    overflow-y: scroll;
+}
+
+.tableApi thead tr {
+    background-color:  var(--color1);
+    color:  var(--blanco);
+    text-align: left;
+}
+
+.tableApi th, .tableApi td {
+ padding: 12px 15px;
+ border-radius: 6px;
+ text-align: left;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ 
+}
+
+
+.tableApi tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.ICONAPI {
+    color: var(--color1);
+   
+}
+.ICONAPI2{
+    color: var(--blanco);
+}
+#descripcionApi{
+    color: var(--text-color2);
+}
+#valorApi{
+    font-weight: 600;
+    color: var(--color1);
+}
+#fechaApi{
+    color: var(--color1);
+    font-weight: 600;
+}
+
+@media screen and (max-width: 900px) {
+   
+    .ApiBrca{
+        display: flex;
+        flex-direction: column;
+         justify-content: space-between;
+       
+         padding: 50px 3%;
+       
+    }
+    .ICONAPI {
+       font-size: 18px;
+       
+    }
+    .ICONAPI2 {
+        font-size: 18px;
+        
+     }
+}
+

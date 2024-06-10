@@ -1,7 +1,7 @@
 import React from 'react';
 import './Servicios.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faHandHoldingUsd, faShieldAlt } from '@fortawesome/free-solid-svg-icons'; // Importa los iconos que necesitas
+import { faChartLine, faHandHoldingUsd, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import BtnContact from '../BtnContact/BtnContact';
 import TitleSection from '../TitleSection/TitleSection';
 
