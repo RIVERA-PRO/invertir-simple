@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    height: 100vh;
+   
   
 }
 
@@ -17,17 +17,32 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    width: 100vh;
+    gap: 1rem;
 }
+
 .CalculoContainText{
     border: 1px solid var(--input);
-    padding: 20px;
+    padding: 150px 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: space-between;
+    gap: 4rem;
+    width: 100vh;
+    height: 100%;
 }
-
+#CalculoContainText{
+    border: 1px solid var(--input);
+    padding: 100px 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100vh;
+    height: 100%;
+}
 .bgParrafo{
     display: flex;
     align-items: center;
@@ -36,6 +51,14 @@
     border-radius: 10px;
     background-color: var(--color5);
    
+}
+#bgParrafo{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--color6);
 }
 .CalculoContain h2{
     color: var(--text-color2);
@@ -46,13 +69,19 @@
     color: var(--text-color2);
     font-weight: 500;
 }
+
 .CalculoContain h2 span{
     color: var(--color5);
-    font-size: 35px;
+    font-size: 30px;
+   
+}
+#CalculoContain h2 span{
+    color: var(--color6);
+    font-size: 30px;
    
 }
 .Calculo2ContainText h3{
-    font-weight: 700;
+    font-weight: 500;
     font-size: 25px;
 }
 
@@ -104,7 +133,7 @@ form input, form select {
 
 @media (max-width: 900px) {
     .CalculoContain{
-        padding: 100px 4%;
+        padding: 100px 3%;
         height: 100%;
         flex-direction: column;
     }
@@ -116,4 +145,36 @@ form input, form select {
     .bgParrafo p{
         font-size: 13px;
     }
+    .Calculo2ContainText{
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+    .Calculo2ContainText h3{
+        font-size: 20px;
+    }
+    
+    .CalculoContainText{
+        border: 1px solid var(--input);
+        padding: 50px 20px;
+        gap: 2rem;
+        width: 100%;
+        height: 100%;
+    }
+    #CalculoContainText{
+        width: 100%;
+        padding: 50px 20px;
+        gap: 2rem;
+    }
+    
+    .deFlexInputsCalculo label{
+        font-size: 12px;
+    }
+    .deFlexInputsCalculo span{
+        font-size: 12px;
+    }
+   
 }
