@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './NavbarDashboard.css'
 import { Link as Anchor, useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faBook, faImage, faAddressBook, faTachometerAlt, faCode, faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faBook, faImage, faAddressBook, faTachometerAlt, faVideo, faMessage } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../../images/icon.PNG'
 import Logout from '../Logout/Logout';
 import baseURL from '../../url';
@@ -49,6 +49,7 @@ export default function Navbar() {
                         {usuario?.rol === 'admin' ? (
                             <>  <Anchor to={`/dashboard/usuarios`} className={location.pathname === '/dashboard/usuarios' ? 'activeLink' : ''}><FontAwesomeIcon icon={faUser} /> Usuarios</Anchor>
                                 <Anchor to={`/dashboard/consultas`} className={location.pathname === '/dashboard/consultas' ? 'activeLink' : ''}><FontAwesomeIcon icon={faMessage} /> Consultas</Anchor>
+                                <Anchor to={`/dashboard/videos`} className={location.pathname === '/dashboard/consultas' ? 'activeLink' : ''}><FontAwesomeIcon icon={faVideo} /> Videos</Anchor>
                             </>
                         ) : (
                             <></>

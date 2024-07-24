@@ -13,5 +13,12 @@
 }
 .SinPermisos h1{
     text-align: center;
+    color: var(--text-color2);
     
+}
+
+.SinPermisos img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }

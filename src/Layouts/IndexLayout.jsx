@@ -9,7 +9,7 @@ import Planes from '../Components/Planes/Planes';
 import Empezar from '../Components/Empezar/Empezar';
 import Aliados from '../Components/Aliados/Aliados';
 import SectionContact from '../Components/SectionContact/SectionContact';
-import ApiBrca from '../Components/ApiBrca/ApiBrca';
+import TitleSection from '../Components/TitleSection/TitleSection';
 export default function IndexLayout() {
 
 
@@ -24,7 +24,7 @@ export default function IndexLayout() {
             <SectionContact />
             <Servicios />
             <Planes />
-            <ApiBrca />
+            <TitleSection section="MP 1941 Agente productor CNV" />
             <Aliados />
             <Footer />
             <BtnWhatsapp />

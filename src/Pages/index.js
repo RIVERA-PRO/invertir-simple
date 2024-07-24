@@ -8,6 +8,7 @@ import Usuarios from '../Pages/Usuarios/Usuarios'
 import Main from "./Main/Main";
 import Consultas from './Consultas/Consultas'
 import CalculaPage from "./CalculaPage/CalculaPage";
+import Videos from "./Videos/Videos";
 export const router = createBrowserRouter([
 
 
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path: `/dashboard/consultas`,
                 element: <Consultas />,
+            },
+            {
+                path: `/dashboard/videos`,
+                element: <Videos />,
             },
         ],
     },

@@ -11,7 +11,7 @@ export default function Empezar() {
                 <p>
                     ¡Abrir una cuenta en INVERTIRSIMPLE.AR es fácil y gratuito!
 
-                    Solamente necesitas tener documento argentino, ser mayor de edad y una cuenta bancaria (CBU) a tu nombre.</p>
+                    Solamente necesitas tener documento argentino, ser mayor de edad y una cuenta bancaria CBU o CVU a tu nombre.</p>
 
 
                 <h3>¡NECESITAMOS CONOCERTE!</h3>

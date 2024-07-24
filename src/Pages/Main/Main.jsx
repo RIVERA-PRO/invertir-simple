@@ -51,6 +51,7 @@ export default function Main() {
                                     <ConsultasMain />
                                     <InfoUserMain />
                                 </div>
+
                             </div>
                         </section>
                     ) : (
