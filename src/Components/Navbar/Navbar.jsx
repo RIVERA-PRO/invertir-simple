@@ -35,7 +35,7 @@ export default function Navbar() {
             <nav className={isScrolled ? 'nav-scroll' : ''}>
 
                 <Anchor to={`/`} className='logo'>
-                    <img src={logo} alt="imagen" className='logoAtuh' />
+                    <img src={logo} alt="imagen" />
                 </Anchor>
 
 

@@ -17,6 +17,7 @@
 .titleSection p{
     font-size: 16px;
     color: var(--text-color2);
+    width: 70%;
 }
 
 @media (max-width: 710px) {
@@ -31,6 +32,9 @@
     }
     .titleSection{
         padding: 10px;
+    }
+    .titleSection p{
+        width: 100%;
     }
     
 }

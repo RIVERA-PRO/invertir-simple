@@ -23,24 +23,25 @@ export default function CalculoMeta() {
     });
 
     const handleCurrencyChange = (e) => setCurrency(e.target.value);
-    const handleGoalChange = (e) => setGoal(e.target.value);
-    const handleMonthsChange = (e) => setMonths(e.target.value);
+    const handleGoalChange = (e) => setGoal(parseInt(e.target.value));
+    const handleMonthsChange = (e) => setMonths(parseInt(e.target.value));
 
     const calculate = () => {
-        const periodicAmount = parseFloat(goal) / months;
         const estimatedAnnualReturn = 0.1;
         const monthlyReturn = estimatedAnnualReturn / 12;
 
+        // Calcula el pago periódico necesario para alcanzar el objetivo
+        const periodicAmount = goal * (monthlyReturn / ((Math.pow(1 + monthlyReturn, months) - 1)));
         const futureValue = periodicAmount * ((Math.pow(1 + monthlyReturn, months) - 1) / monthlyReturn);
         const monthlyValues = [];
 
         for (let i = 1; i <= months; i++) {
             const monthlyFutureValue = periodicAmount * ((Math.pow(1 + monthlyReturn, i) - 1) / monthlyReturn);
-            monthlyValues.push(monthlyFutureValue.toFixed(2));
+            monthlyValues.push(monthlyFutureValue.toFixed(0));  // Cambié a `toFixed(0)`
         }
 
         setResult({
-            totalAmount: futureValue.toFixed(2),
+            totalAmount: Math.round(periodicAmount),  // Redondeo al entero más cercano
             monthlyValues
         });
 
@@ -117,12 +118,12 @@ export default function CalculoMeta() {
                         <label>Dolares</label>
                     </div>
                 </div>
-                <div className='deFlexInputsCalculo'>
+                <div className='deFlexInputsCalculo2'>
                     <label>Objetivo a cumplir:</label>
                     <input type="range" min="500000" max="5000000" value={goal} step="100000" onChange={handleGoalChange} />
-                    <span>{currency} {goal}</span>
+                    <span>{currency} {goal.toLocaleString()}</span>
                 </div>
-                <div className='deFlexInputsCalculo'>
+                <div className='deFlexInputsCalculo2'>
                     <label>Plazo para llegar a tu meta (meses):</label>
                     <input type="range" min="12" max="60" value={months} step="12" onChange={handleMonthsChange} />
                     <span>{months} meses</span>
@@ -133,7 +134,7 @@ export default function CalculoMeta() {
                 </div>
             </div>
             <div className='Calculo2ContainText'>
-                <h3>Para llegar a <strong>{currency} {goal}</strong> en <strong>{months} meses</strong>, deberás invertir: <strong>{currency} {result ? result.totalAmount : '0.00'}</strong></h3>
+                <h3>Para llegar a <strong>{currency} {goal.toLocaleString()}</strong> en <strong>{months} meses</strong>, deberás invertir: <strong>{currency} {result ? result.totalAmount.toLocaleString() : '0'}</strong></h3>
 
                 <div className="card">
                     <Chart type="line" data={chartData} options={chartOptions} />

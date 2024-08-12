@@ -49,7 +49,8 @@ export default function Navbar() {
                         {usuario?.rol === 'admin' ? (
                             <>  <Anchor to={`/dashboard/usuarios`} className={location.pathname === '/dashboard/usuarios' ? 'activeLink' : ''}><FontAwesomeIcon icon={faUser} /> Usuarios</Anchor>
                                 <Anchor to={`/dashboard/consultas`} className={location.pathname === '/dashboard/consultas' ? 'activeLink' : ''}><FontAwesomeIcon icon={faMessage} /> Consultas</Anchor>
-                                <Anchor to={`/dashboard/videos`} className={location.pathname === '/dashboard/consultas' ? 'activeLink' : ''}><FontAwesomeIcon icon={faVideo} /> Videos</Anchor>
+                                <Anchor to={`/dashboard/banners`} className={location.pathname === '/dashboard/banners' ? 'activeLink' : ''}><FontAwesomeIcon icon={faImage} /> Banners</Anchor>
+                                <Anchor to={`/dashboard/videos`} className={location.pathname === '/dashboard/videos' ? 'activeLink' : ''}><FontAwesomeIcon icon={faVideo} /> Videos</Anchor>
                             </>
                         ) : (
                             <></>

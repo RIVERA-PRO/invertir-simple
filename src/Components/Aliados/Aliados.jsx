@@ -29,7 +29,22 @@ export default function Aliados() {
             img: aliado4,
 
         },
+        {
+            img: aliado,
 
+        },
+        {
+            img: aliado2,
+
+        },
+        {
+            img: aliado3,
+
+        },
+        {
+            img: aliado4,
+
+        },
 
     ]
     return (
@@ -40,14 +55,11 @@ export default function Aliados() {
             slidesPerView={'auto'}
             coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
             navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
-            autoplay={{ delay: 3000 }} // Cambia el valor de 'delay' según tus preferencias
-
+            autoplay={{ delay: 3000 }}
             onSwiper={(swiper) => {
                 console.log(swiper);
                 swiperRef.current = swiper;
             }}
-            pagination={{ clickable: true }}
-
             id='swiper_container_aliados'
         >
             {images.map((item) => (

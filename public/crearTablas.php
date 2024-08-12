@@ -33,6 +33,13 @@ try {
         }
     }
 
+        // Crear tabla 'banner' si no existe
+        $consultaBanner = "CREATE TABLE IF NOT EXISTS `banner` (
+            idBanner INT(11) AUTO_INCREMENT PRIMARY KEY,
+            imagen VARCHAR(900) NOT NULL,
+            createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )";
+        crearTablaSiNoExiste($conexion, 'banner', $consultaBanner);
 
     // Crear tabla 'usuarios' si no existe
     $consultaUsuarios = "CREATE TABLE IF NOT EXISTS `usuarios` (

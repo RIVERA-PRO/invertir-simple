@@ -8,9 +8,9 @@ import { Chart } from 'primereact/chart';
 export default function CalculoAhorro() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [currency, setCurrency] = useState('Pesos');
-    const [amount, setAmount] = useState('');
+    const [amount, setAmount] = useState('100000'); // Monto por defecto en 100000
     const [frequency, setFrequency] = useState('Mes');
-    const [years, setYears] = useState('');
+    const [years, setYears] = useState('1');
     const [result, setResult] = useState(null);
     const [chartData, setChartData] = useState({
         labels: ['año 1', 'año 2', 'año 3', 'año 4'],
@@ -41,34 +41,56 @@ export default function CalculoAhorro() {
 
         // Fórmula simple de interés compuesto
         const futureValue = periodicAmount * ((Math.pow(1 + estimatedAnnualReturn / periodsPerYear, totalPeriods) - 1) / (estimatedAnnualReturn / periodsPerYear));
-        const yearlyValues = [];
+        const values = [];
 
-        for (let i = 1; i <= parseInt(years); i++) {
-            const yearlyFutureValue = periodicAmount * ((Math.pow(1 + estimatedAnnualReturn / periodsPerYear, i * periodsPerYear) - 1) / (estimatedAnnualReturn / periodsPerYear));
-            yearlyValues.push(yearlyFutureValue.toFixed(2));
+        if (parseInt(years) === 1) {
+            for (let i = 1; i <= totalPeriods; i++) {
+                const periodFutureValue = periodicAmount * ((Math.pow(1 + estimatedAnnualReturn / periodsPerYear, i) - 1) / (estimatedAnnualReturn / periodsPerYear));
+                values.push(periodFutureValue.toFixed(2));
+            }
+            setChartData({
+                labels: Array.from({ length: totalPeriods }, (_, i) => `Mes ${i + 1}`),
+                datasets: [
+                    {
+                        label: 'Valor futuro',
+                        data: values,
+                        fill: true,
+                        tension: 0.4,
+                        backgroundColor: '#11edcc70'
+                    }
+                ]
+            });
+        } else {
+            for (let i = 1; i <= parseInt(years); i++) {
+                const yearlyFutureValue = periodicAmount * ((Math.pow(1 + estimatedAnnualReturn / periodsPerYear, i * periodsPerYear) - 1) / (estimatedAnnualReturn / periodsPerYear));
+                values.push(yearlyFutureValue.toFixed(2));
+            }
+            setChartData({
+                labels: Array.from({ length: years }, (_, i) => `Año ${i + 1}`),
+                datasets: [
+                    {
+                        label: 'Valor futuro',
+                        data: values,
+                        fill: true,
+                        tension: 0.4,
+                        backgroundColor: '#11edcc70'
+                    }
+                ]
+            });
         }
 
         setResult({
             totalAmount: futureValue.toFixed(2),
             totalPeriods,
-            yearlyValues
+            values
         });
 
-        setChartData({
-            labels: Array.from({ length: years }, (_, i) => `año ${i + 1}`),
-            datasets: [
-                {
-                    label: 'Valor futuro',
-                    data: yearlyValues,
-                    fill: true,
-                    tension: 0.4,
-                    backgroundColor: '#11edcc70'
-                }
-            ]
-        });
-
-        closeModal();
+        closeModal(); // Cerrar el modal después de calcular
     };
+
+    useEffect(() => {
+        calculate();
+    }, []);
 
     const [chartOptions, setChartOptions] = useState({});
     useEffect(() => {
@@ -110,6 +132,10 @@ export default function CalculoAhorro() {
         setChartOptions(options);
     }, []);
 
+    const formatNumber = (num) => {
+        return parseFloat(num).toLocaleString('es-ES', { maximumFractionDigits: 0 });
+    };
+
     return (
         <div className='CalculoContain'>
             <div className='CalculoContainText'>
@@ -131,8 +157,7 @@ export default function CalculoAhorro() {
                 </div>
             </div>
             <div className='Calculo2ContainText'>
-                <h3>Si invertís <strong>{currency} {amount || '0'}</strong> por {frequency.toLowerCase()}, en <strong>{years} años</strong> recibirás: <strong> {currency} {result ? result.totalAmount : '0.00'}</strong></h3>
-
+                <h3>Si invertís <strong>{currency} {amount ? formatNumber(amount) : '0'}</strong> por {frequency.toLowerCase()}, en <strong>{years} años</strong> recibirás: <strong> {currency} {result ? formatNumber(result.totalAmount) : '0.00'}</strong></h3>
 
                 <div className="card">
                     <Chart type="line" data={chartData} options={chartOptions} />
@@ -152,7 +177,7 @@ export default function CalculoAhorro() {
                     </div>
                     <div>
                         <label>Monto a invertir:</label>
-                        <input type="number" value={amount} onChange={handleAmountChange} required />
+                        <input type="number" placeholder='Ingrese un monto' value={amount} onChange={handleAmountChange} required />
                     </div>
                     <div>
                         <label>Frecuencia de inversión:</label>
@@ -163,7 +188,13 @@ export default function CalculoAhorro() {
                     </div>
                     <div>
                         <label>Duración en años:</label>
-                        <input type="number" value={years} onChange={handleYearsChange} required />
+                        <select value={years} onChange={handleYearsChange} required>
+                            <option value="1">1 año</option>
+                            <option value="2">2 años</option>
+                            <option value="3">3 años</option>
+                            <option value="4">4 años</option>
+                            <option value="5">5 años</option>
+                        </select>
                     </div>
                     <button className='btnCal' type="button" onClick={calculate} required>Calcular</button>
                 </form>

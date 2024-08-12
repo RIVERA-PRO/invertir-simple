@@ -17,15 +17,15 @@ export default function Banners() {
         {
             img: banner2,
             titulo: 'Revoluciona tu forma de ahorrar dinero e invertir online',
-            subtitulo: 'Descarga la app de Banza y aprende a invertir dinero en bolsa fácil y seguro',
-            párrafo: 'Te acercamos al mundo de las finanzas de manera SIMPLE.',
+            subtitulo: 'Aprende a invertir dinero en bolsa fácil y seguro',
+            parrafo: 'Te acercamos al mundo de las finanzas de manera SIMPLE.',
         },
 
         {
             img: banner1,
-            titulo: 'Revoluciona tu forma de ahorrar dinero e invertir online',
-            subtitulo: 'Descarga la app de Banza y aprende a invertir dinero en bolsa fácil y seguro',
-            párrafo: 'Te acercamos al mundo de las finanzas de manera SIMPLE.',
+            titulo: 'Abrí una cuenta y empezá a potenciar tus ahorros',
+            subtitulo: 'Comenzá a operar con el asesoramiento de Invertir Simple en 3 simples pasos',
+            parrafo: `1. Abrí una cuenta 2. Accedé a nuestros contenidos  3. Operá online `,
 
         },
 
@@ -40,8 +40,7 @@ export default function Banners() {
             loop={true}
             slidesPerView={'auto'}
             coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
-            navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
-            autoplay={{ delay: 3000 }}
+            autoplay={{ delay: 2000 }}
             pagination={{ clickable: true }}
             onSwiper={(swiper) => {
                 console.log(swiper);
