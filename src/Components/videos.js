@@ -1,4 +1,4 @@
-const url = 'https://invertir.faugetdigital.shop/'
+const url = 'https://invertirsimple.ar/'
 const ruta = 'videos'
 const videos = [
 

@@ -1,3 +1,3 @@
-const baseURL = 'https://invertir.faugetdigital.shop/';
+const baseURL = 'https://invertirsimple.ar/';
 
 export default baseURL;

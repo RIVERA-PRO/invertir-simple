@@ -55,7 +55,7 @@ export default function Aliados() {
             slidesPerView={'auto'}
             coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
             navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
-            autoplay={{ delay: 3000 }}
+            autoplay={{ delay: 2000 }}
             onSwiper={(swiper) => {
                 console.log(swiper);
                 swiperRef.current = swiper;

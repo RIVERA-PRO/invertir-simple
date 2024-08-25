@@ -40,7 +40,7 @@ export default function Banners() {
             loop={true}
             slidesPerView={'auto'}
             coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
-            autoplay={{ delay: 2000 }}
+            autoplay={{ delay: 3000 }}
             pagination={{ clickable: true }}
             onSwiper={(swiper) => {
                 console.log(swiper);
